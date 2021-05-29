@@ -102,11 +102,11 @@ def previousWeekDay(date):
     else:
         return previousDay(previousDay(previousDay(date)))
 time.sleep(5)
-##finder(tab,'l')
-##pag.write('https://www.nseindia.com/all-reports', interval=0.25)  # prints out "Hello world!" with a quarter second delay after each character
-##pag.press('enter')
-##time.sleep(5)
-##pag.moveRel(0,100,1)
+finder(tab,'l')
+pag.write('https://www.nseindia.com/all-reports', interval=0.25)  # prints out "Given text" with a quarter second delay after each character
+pag.press('enter')
+time.sleep(5)
+pag.moveRel(0,100,1)
 start = datetime.date.today()
 current = previousWeekDay(start)
 while target!=current:
@@ -114,7 +114,7 @@ while target!=current:
     mm=current.month
     yy=current.year
     
-    if os.path.exists('C:\\Users\\Sujathaselvi\\Downloads\\cm'+d(dd)+m(mm)+str(yy)+'bhav.csv.zip'):
+    if os.path.exists('BhavCopy Zip files\\cm'+d(dd)+m(mm)+str(yy)+'bhav.csv.zip'):
         current = previousWeekDay(current)
         print('File on '+m(mm)+' '+d(dd)+', '+str(yy)+' has already been downloaded')
     else:
@@ -162,6 +162,7 @@ while target!=current:
             waitTime += 0.6
         if waitTime < 9.9:
             print('cm'+d(dd)+m(mm)+str(yy)+'bhav.csv.zip is downloaded')
+            shutil.move('C:\\Users\\Sujathaselvi\\Downloads\\cm'+d(dd)+m(mm)+str(yy)+'bhav.csv.zip','BhavCopy Zip files')
         else:
             print('Download is unsuccessful')
         pag.press('F5')
@@ -173,5 +174,4 @@ while target!=current:
             pag.press('home')
             time.sleep(1)
             pag.moveRel(150,0)
-##        shutil.move('C:\\Users\\Sujathaselvi\\Downloads\\cm'+d(dd)+m(mm)+str(yy)+'bhav.csv.zip','BhavCopy Zip files')
         current = previousWeekDay(current)
